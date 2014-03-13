@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.ai"
+    android:versionCode="1"
+    android:versionName="0.0.1" >
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+
+    <application
+        android:name="com.ai.AccountInfoApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name="com.ai.MainActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <receiver android:name=".AcBootBroadReceiver"
+            android:enabled="true"
+            android:exported="false"
+            android:label="StartServiceAtBootReceiver">pa
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <service android:name=".services.NotificationService"
+            android:process=":NotificationService">
+        </service>
+        <service
+            android:enabled="true"
+            android:name=".services.SystemService">
+        </service>
+        <service
+            android:enabled="true"
+            android:name=".services.WidgetService">
+        </service>
+        <service
+            android:enabled="true"
+            android:name=".services.WidgetServiceMedium">
+        </service>
+        <service
+            android:enabled="true"
+            android:name=".services.WidgetServiceSmall">
+        </service>
+        <service
+            android:enabled="true"
+            android:name=".services.WidgetServiceSmall2">
+        </service>
+        <service
+            android:enabled="true"
+            android:name=".services.WidgetServiceSmall3">
+        </service>
+        <activity
+            android:name=".Info"
+            android:label="@string/app_name2">
+        </activity>
+        <activity
+            android:name=".Settings"
+            android:label="@string/app_name3">
+        </activity>
+        <activity
+            android:name=".Payments">
+        </activity>
+
+        <receiver
+            android:name="TestWidget"
+
+            android:label="@string/widget_name">
+            <intent-filter>
+                <action
+                    android:name="android.appwidget.action.APPWIDGET_UPDATE">
+                </action>
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/metadata_widget">
+            </meta-data>
+        </receiver>
+
+        <receiver
+            android:name="TestWidgetSmall"
+
+            android:label="@string/widget_name_small">
+            <intent-filter>
+                <action
+                    android:name="android.appwidget.action.APPWIDGET_UPDATE">
+                </action>
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/metadata_widget_small">
+            </meta-data>
+        </receiver>
+
+        <receiver
+            android:name="TestWidgetMedium"
+
+            android:label="@string/widget_name_medium">
+            <intent-filter>
+                <action
+                    android:name="android.appwidget.action.APPWIDGET_UPDATE">
+                </action>
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/metadata_widget_medium">
+            </meta-data>
+        </receiver>
+
+        <receiver
+            android:name="TestWidgetSmall2"
+
+            android:label="@string/widget_name_small2">
+            <intent-filter>
+                <action
+                    android:name="android.appwidget.action.APPWIDGET_UPDATE">
+                </action>
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/metadata_widget_small2">
+            </meta-data>
+        </receiver>
+
+
+        <receiver
+            android:name="TestWidgetSmall3"
+
+            android:label="@string/widget_name_small3">
+            <intent-filter>
+                <action
+                    android:name="android.appwidget.action.APPWIDGET_UPDATE">
+                </action>
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/metadata_widget_small3">
+            </meta-data>
+        </receiver>
+
+    </application>
+
+</manifest>
